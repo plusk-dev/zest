@@ -1,0 +1,26 @@
+{% extends "dashboard_base.html" %}
+{% block content %}
+<button class="btn btn-primary" id="print-btn">Print Monthly Audit</button>
+<div id="data-table">
+
+</div>
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+
+<script>
+  let url = new URL(window.location)
+  let month = url.searchParams.get("month")
+  let year = url.searchParams.get("year")
+  fetch(`/estimate/month_orders?month=${month}&year=${year}`, { "method": "POST" }).then(response => response.json()).then(data => {
+    data.orders.forEach(element => {
+      document.getElementById("data-table").innerHTML += `<br><br><br><br><div style="border-bottom: 1px solid black"><h3>Order Details:</h3><br>Name: ${element.name}<br>Date: ${element.date.replace("GMT", "IST")} <br>${getTable(element.data)}</div`
+    })
+  })
+  document.getElementById("print-btn").addEventListener("click", (e) => {
+    let divContents = document.getElementById("data-table").innerHTML;
+    let printWindow = window.open();
+    printWindow.document.write(divContents);
+    printWindow.document.close();
+    printWindow.print();
+  });
+</script>
+{% endblock %}

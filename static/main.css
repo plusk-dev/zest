@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+  font-family: "Roboto";
+}
+.btn {
+  font-weight: bolder;
+  font-size: 75%;
+}
+
+.login-form {
+  max-width: 600px;
+  margin: auto;
+  padding-top: 60px;
+  text-align: center;
+}
+
+.login-form form {
+  border: 1px solid rgb(165, 165, 165);
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.submit-btn {
+  width: 100%;
+}
+
+.winda {
+  padding-bottom: 25px;
+  max-width: 300px;
+}

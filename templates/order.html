@@ -1,0 +1,35 @@
+{% extends "dashboard_base.html" %}
+
+{% block content %}
+<div id="order">
+  <h3>Order Info:</h3>
+  <b>Name:</b> {{ order.name }}
+  <br>
+  <b>Date:</b> {{ order.date.strftime('%A %d %B %Y') }}
+  <div id="data-table">
+
+  </div>
+</div>
+<button class="btn btn-primary" id="print-btn">Print Order</button>
+
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+<script>
+  let height = "{{ order.data['Track - Vertical']['per_piece'] }}"
+  let width = "{{ order.data['Track - Top/Bottom']['per_piece'] }}"
+  let api_call_url = `/estimate?width=${width}&height=${height}`;
+  document.getElementById("data-table").innerHTML = "Loading Audit..."
+  fetch(api_call_url)
+    .then((response) => {
+      return response.json();
+    }).then(data => {
+      document.getElementById("data-table").innerHTML = getTable(data)
+    })
+  document.getElementById("print-btn").addEventListener("click", (e) => {
+    let divContents = document.getElementById("order").innerHTML;
+    let printWindow = window.open();
+    printWindow.document.write(divContents);
+    printWindow.document.close();
+    printWindow.print();
+  })
+</script>
+{% endblock %}

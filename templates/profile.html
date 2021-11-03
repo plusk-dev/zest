@@ -1,0 +1,7 @@
+{% extends "dashboard_base.html" %}
+{% block content %}
+<h4>Username:</h4><span>{{ session["user"]["username"] }}</span>
+<h4>Display Name:</h4><span>{{ session["user"]["display_name"] }}</span>
+<br><br>
+<a href="#">Change Password</a>
+{% endblock %}

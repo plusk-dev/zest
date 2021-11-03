@@ -1,0 +1,22 @@
+{% extends "dashboard_base.html" %}
+
+{% block content %}
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card">
+      <img
+        src="https://3.imimg.com/data3/BB/KR/MY-7685255/powder-coated-aluminium-window-500x500.jpg"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">EURO Series 
+          ( 2 + 1 )</h5>
+        <p class="card-text">
+          <a href="{{ url_for('dashboard.estimate') }}" class="btn btn-primary btn-block">Select</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock  %}

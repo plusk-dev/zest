@@ -1,0 +1,39 @@
+{% extends "dashboard_base.html" %}
+
+{% block content %}
+<h1 style="font-weight: lighter">Products:</h1><hr>
+<br>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card">
+      <img
+        src="https://www.aiswindows.com/wp-content/uploads/2021/01/shutterstock_788319139.jpg"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">Windows</h5>
+        <p class="card-text">
+          <a href="{{ url_for('dashboard.types_of_window') }}" class="btn btn-primary btn-block">Select</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="col">
+    <div class="card">
+      <img
+        src="https://mdbootstrap.com/img/new/standard/city/042.jpg"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">
+          <a href="#" class="btn btn-primary btn-block">View</a>
+        </p>
+      </div>
+    </div>
+  </div>
+ -->
+</div>
+{% endblock  %}
